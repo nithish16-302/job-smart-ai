@@ -40,3 +40,28 @@ export async function me(token: string) {
   if (!res.ok) throw new Error("Fetch profile failed");
   return res.json();
 }
+
+export async function ingestJobs(token: string) {
+  const res = await fetch(`${API_BASE}/jobs/ingest`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) throw new Error("Ingest failed");
+  return res.json();
+}
+
+export async function personalizedJobs(token: string) {
+  const res = await fetch(`${API_BASE}/jobs/personalized`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) throw new Error("Fetch jobs failed");
+  return res.json();
+}
+
+export async function dashboardStages(token: string) {
+  const res = await fetch(`${API_BASE}/dashboard/stages`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) throw new Error("Dashboard fetch failed");
+  return res.json();
+}

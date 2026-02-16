@@ -19,6 +19,12 @@ Resume-aware job discovery platform.
 - Resume upload + keyword parser (skills/roles extraction)
 - User location preference persistence
 
+### Milestone 3 ✅
+- Multi-source job ingestion (`/jobs/ingest`)
+- Job normalization + persistence
+- Personalized ranking (`/jobs/personalized`)
+- Pipeline stage dashboard (`/dashboard/stages`)
+
 ## Monorepo Structure
 - `frontend/` - Next.js app
 - `backend/` - FastAPI API

@@ -12,11 +12,11 @@
 - Resume parser service (keyword/role extraction baseline)
 - User profile + location preference model
 
-## Milestone 3
-- Job source adapters (API-first)
-- Job normalization pipeline
-- Relevance scoring engine
-- Dashboard with pipeline stages
+## Milestone 3 (Done)
+- Job source adapters (mock + Remotive API)
+- Job normalization + ingestion pipeline
+- Relevance scoring engine (skills/roles/location)
+- Pipeline stage dashboard endpoint
 
 ## Milestone 4
 - Apply tracking
