@@ -14,3 +14,4 @@ DATABASE_URL = normalize_database_url(os.getenv("DATABASE_URL", "sqlite:///./job
 JWT_SECRET = os.getenv("JWT_SECRET", "change-me")
 JWT_ALG = "HS256"
 JWT_EXPIRE_MINUTES = 60 * 24
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", "")

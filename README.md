@@ -85,9 +85,11 @@ This repo includes a Render Blueprint file: `render.yaml`.
 - Env vars:
   - `DATABASE_URL` (from Render Postgres)
   - `JWT_SECRET` (random strong value)
+  - `GOOGLE_CLIENT_ID` (Google OAuth Web Client ID)
 
 ## Connect Frontend to Render Backend
 In Vercel project env vars, set:
 - `NEXT_PUBLIC_API_BASE=https://<your-render-backend-url>`
+- `NEXT_PUBLIC_GOOGLE_CLIENT_ID=<same-google-client-id>`
 
 Then redeploy frontend.

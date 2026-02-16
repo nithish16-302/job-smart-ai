@@ -1,5 +1,6 @@
 import AuthGuard from "@/components/AuthGuard";
 import NavBar from "@/components/NavBar";
+import Providers from "@/components/Providers";
 import "./globals.css";
 
 export const metadata = {
@@ -11,10 +12,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <AuthGuard>
-          <NavBar />
-          <div className="container">{children}</div>
-        </AuthGuard>
+        <Providers>
+          <AuthGuard>
+            <NavBar />
+            <div className="container">{children}</div>
+          </AuthGuard>
+        </Providers>
       </body>
     </html>
   );

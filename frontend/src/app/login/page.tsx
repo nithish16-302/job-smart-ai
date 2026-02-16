@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { login, register } from "@/lib/api";
+import { GoogleLogin } from "@react-oauth/google";
+import { login, register, googleLogin } from "@/lib/api";
 import { setToken } from "@/lib/auth";
 
 export default function LoginPage() {
@@ -32,6 +33,8 @@ export default function LoginPage() {
     }
   };
 
+  const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+
   return (
     <main className="grid" style={{ maxWidth: 500, margin: "60px auto" }}>
       <section className="card grid">
@@ -44,6 +47,27 @@ export default function LoginPage() {
           <button onClick={handleLogin}>Login</button>
           <button onClick={handleRegister}>Register</button>
         </div>
+
+        <div className="row" style={{ marginTop: 8 }}>
+          {googleClientId ? (
+            <GoogleLogin
+              onSuccess={async (cred) => {
+                try {
+                  if (!cred.credential) throw new Error("Missing Google credential");
+                  const res = await googleLogin(cred.credential);
+                  setToken(res.access_token);
+                  router.replace("/dashboard");
+                } catch (e: any) {
+                  setMsg(e.message || "Google login failed");
+                }
+              }}
+              onError={() => setMsg("Google login failed")}
+            />
+          ) : (
+            <p>Google SSO is not configured yet (missing NEXT_PUBLIC_GOOGLE_CLIENT_ID).</p>
+          )}
+        </div>
+
         {!!msg && <p style={{ color: "crimson" }}>{msg}</p>}
       </section>
     </main>
