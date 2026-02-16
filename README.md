@@ -65,3 +65,29 @@ Frontend: http://localhost:3000
 Backend health: http://localhost:8000/health
 
 > Recommended backend Python: **3.12 or 3.13** for smooth dependency install.
+
+## Deploy Backend on Render
+This repo includes a Render Blueprint file: `render.yaml`.
+
+### Option A (recommended)
+1. In Render dashboard, click **New +** → **Blueprint**
+2. Connect this GitHub repo: `nithish16-302/job-smart-ai`
+3. Render will create:
+   - `jobsmart-db` (Postgres)
+   - `jobsmart-api` (FastAPI web service)
+4. After deploy, copy backend URL (example: `https://jobsmart-api.onrender.com`)
+
+### Option B (manual service)
+- Root directory: `backend`
+- Build command: `pip install -r requirements.txt`
+- Start command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+- Health check path: `/health`
+- Env vars:
+  - `DATABASE_URL` (from Render Postgres)
+  - `JWT_SECRET` (random strong value)
+
+## Connect Frontend to Render Backend
+In Vercel project env vars, set:
+- `NEXT_PUBLIC_API_BASE=https://<your-render-backend-url>`
+
+Then redeploy frontend.
