@@ -16,9 +16,7 @@ export default function ApplicationsPage() {
     setApplications(res.applications || []);
   };
 
-  useEffect(() => {
-    refresh();
-  }, []);
+  useEffect(() => { refresh(); }, []);
 
   const onStage = async (id: number, stage: string) => {
     if (!token) return;
@@ -27,18 +25,18 @@ export default function ApplicationsPage() {
   };
 
   return (
-    <div style={{ display: "grid", gap: 12 }}>
+    <div className="grid">
       <h2>Application Tracker</h2>
       {applications.map((a) => (
-        <article key={a.application_id} style={{ background: "#fff", borderRadius: 12, padding: 16 }}>
-          <h3>{a.job.title}</h3>
-          <p>{a.job.company} • {a.job.location}</p>
-          <p>Current stage: <strong>{a.stage}</strong></p>
-          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+        <article key={a.application_id} className="card grid">
+          <div>
+            <h3>{a.job.title}</h3>
+            <p>{a.job.company} • {a.job.location}</p>
+            <p>Current stage: <strong>{a.stage}</strong></p>
+          </div>
+          <div className="row">
             {stages.map((s) => (
-              <button key={s} onClick={() => onStage(a.application_id, s)} disabled={s === a.stage}>
-                {s}
-              </button>
+              <button key={s} onClick={() => onStage(a.application_id, s)} disabled={s === a.stage}>{s}</button>
             ))}
           </div>
         </article>

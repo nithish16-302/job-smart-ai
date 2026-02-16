@@ -49,7 +49,8 @@ docker compose up -d db
 cd backend
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+# If you're on Python 3.14, use this env var for pydantic-core build compatibility:
+PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1 pip install -r requirements.txt
 uvicorn app.main:app --reload --port 8000
 ```
 
@@ -62,3 +63,5 @@ npm run dev
 
 Frontend: http://localhost:3000  
 Backend health: http://localhost:8000/health
+
+> Recommended backend Python: **3.12 or 3.13** for smooth dependency install.

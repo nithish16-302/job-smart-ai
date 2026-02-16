@@ -33,19 +33,19 @@ export default function LoginPage() {
   };
 
   return (
-    <main style={{ maxWidth: 480, margin: "60px auto", background: "#fff", borderRadius: 12, padding: 20 }}>
-      <h2>Welcome to Job Smart AI</h2>
-      <p>Login to continue</p>
-      <div style={{ display: "grid", gap: 8 }}>
+    <main className="grid" style={{ maxWidth: 500, margin: "60px auto" }}>
+      <section className="card grid">
+        <h2>Welcome back 👋</h2>
+        <p>Login or create account to continue.</p>
         <input placeholder="Full Name (for register)" value={fullName} onChange={(e) => setFullName(e.target.value)} />
         <input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <div style={{ display: "flex", gap: 8 }}>
+        <div className="row">
           <button onClick={handleLogin}>Login</button>
           <button onClick={handleRegister}>Register</button>
         </div>
-      </div>
-      {!!msg && <p style={{ color: "crimson" }}>{msg}</p>}
+        {!!msg && <p style={{ color: "crimson" }}>{msg}</p>}
+      </section>
     </main>
   );
 }

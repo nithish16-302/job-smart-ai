@@ -17,13 +17,13 @@ export default function AdminPage() {
   }, []);
 
   return (
-    <div style={{ display: "grid", gap: 16 }}>
+    <div className="grid">
       <h2>Admin: Source Health</h2>
-      <section style={{ background: "#fff", borderRadius: 12, padding: 16 }}>
-        <h3>Job Count by Source</h3>
+      <section className="card">
+        <h3>Jobs by Source</h3>
         <pre>{JSON.stringify(data?.source_counts || {}, null, 2)}</pre>
       </section>
-      <section style={{ background: "#fff", borderRadius: 12, padding: 16 }}>
+      <section className="card">
         <h3>Recent Ingest Runs</h3>
         <pre>{JSON.stringify(data?.recent_ingest_runs || [], null, 2)}</pre>
       </section>

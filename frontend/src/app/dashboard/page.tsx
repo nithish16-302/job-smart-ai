@@ -11,7 +11,6 @@ export default function DashboardPage() {
   const [location, setLocation] = useState("Remote");
   const [file, setFile] = useState<File | null>(null);
   const [msg, setMsg] = useState("");
-
   const token = typeof window !== "undefined" ? getToken() : "";
 
   const refresh = async () => {
@@ -35,38 +34,31 @@ export default function DashboardPage() {
   };
 
   return (
-    <div style={{ display: "grid", gap: 16 }}>
+    <div className="grid">
       <h2>Dashboard</h2>
+      <div className="row">
+        <section className="card" style={{ minWidth: 180 }}><p>Sourced</p><div className="kpi">{stages?.sourced ?? 0}</div></section>
+        <section className="card" style={{ minWidth: 180 }}><p>Applied</p><div className="kpi">{stages?.applied ?? 0}</div></section>
+        <section className="card" style={{ minWidth: 180 }}><p>Interviews</p><div className="kpi">{stages?.stages?.interview ?? 0}</div></section>
+      </div>
 
-      <section style={{ background: "#fff", borderRadius: 12, padding: 16 }}>
+      <section className="card grid">
         <h3>Profile</h3>
-        <p><strong>Name:</strong> {profile?.full_name || "-"}</p>
-        <p><strong>Email:</strong> {profile?.email || "-"}</p>
-        <p><strong>Preferred Location:</strong> {profile?.preferred_location || "-"}</p>
+        <p><strong>{profile?.full_name || "-"}</strong> • {profile?.email || "-"}</p>
+        <p>Preferred location: {profile?.preferred_location || "-"}</p>
       </section>
 
-      <section style={{ background: "#fff", borderRadius: 12, padding: 16 }}>
-        <h3>Onboarding: Resume + Location</h3>
+      <section className="card grid">
+        <h3>Onboarding</h3>
         <input value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Preferred Location" />
-        <div style={{ height: 8 }} />
         <input type="file" onChange={(e) => setFile(e.target.files?.[0] || null)} />
-        <div style={{ height: 8 }} />
-        <button onClick={onUpload}>Save Resume</button>
+        <div className="row"><button onClick={onUpload}>Save Resume</button></div>
         {!!msg && <p>{msg}</p>}
       </section>
 
-      <section style={{ background: "#fff", borderRadius: 12, padding: 16 }}>
-        <h3>Pipeline Snapshot</h3>
-        <pre>{JSON.stringify(stages || {}, null, 2)}</pre>
-      </section>
-
-      <section style={{ background: "#fff", borderRadius: 12, padding: 16 }}>
+      <section className="card">
         <h3>Alerts</h3>
-        <ul>
-          {alerts.map((a, i) => (
-            <li key={i}>{a.message}</li>
-          ))}
-        </ul>
+        <ul>{alerts.map((a, i) => <li key={i}>{a.message}</li>)}</ul>
       </section>
     </div>
   );

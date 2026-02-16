@@ -12,7 +12,7 @@ export default function JobsPage() {
   const onIngest = async () => {
     if (!token) return;
     const res = await ingestJobs(token);
-    setMsg(`Ingested. Fetched ${res.fetched}, inserted ${res.inserted}`);
+    setMsg(`Synced sources. fetched=${res.fetched}, inserted=${res.inserted}`);
   };
 
   const onLoad = async () => {
@@ -24,25 +24,24 @@ export default function JobsPage() {
   const onSave = async (jobId: number) => {
     if (!token) return;
     await saveJob(token, jobId);
-    setMsg("Job saved to applications.");
+    setMsg("Saved to tracker.");
   };
 
   return (
-    <div style={{ display: "grid", gap: 16 }}>
+    <div className="grid">
       <h2>Personalized Jobs</h2>
-      <div style={{ display: "flex", gap: 8 }}>
-        <button onClick={onIngest}>Sync Job Sources</button>
-        <button onClick={onLoad}>Get Best Matches</button>
+      <div className="row">
+        <button onClick={onIngest}>Sync Sources</button>
+        <button onClick={onLoad}>Load Best Matches</button>
       </div>
       {!!msg && <p>{msg}</p>}
-      <div style={{ display: "grid", gap: 12 }}>
+      <div className="grid">
         {jobs.map((j) => (
-          <article key={j.id} style={{ background: "#fff", borderRadius: 12, padding: 16 }}>
+          <article key={j.id} className="card">
             <h3>{j.title}</h3>
-            <p>{j.company} • {j.location}</p>
-            <p><strong>Score:</strong> {j.score}</p>
-            <p style={{ marginTop: 8 }}>{(j.description || "").slice(0, 180)}...</p>
-            <div style={{ display: "flex", gap: 8 }}>
+            <p>{j.company} • {j.location} • score {j.score}</p>
+            <p>{(j.description || "").replace(/<[^>]+>/g, "").slice(0, 200)}...</p>
+            <div className="row">
               <a href={j.apply_url} target="_blank">Apply</a>
               <button onClick={() => onSave(j.id)}>Save</button>
             </div>

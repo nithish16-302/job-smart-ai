@@ -19,22 +19,24 @@ export default function NavBar() {
   if (!token || pathname === "/login") return null;
 
   return (
-    <nav style={{ display: "flex", gap: 12, alignItems: "center", padding: 16, background: "#0f172a", color: "#fff" }}>
-      <strong>Job Smart AI</strong>
-      {links.map((l) => (
-        <Link key={l.href} href={l.href} style={{ color: pathname === l.href ? "#93c5fd" : "#fff", textDecoration: "none" }}>
-          {l.label}
-        </Link>
-      ))}
-      <button
-        style={{ marginLeft: "auto" }}
-        onClick={() => {
-          clearToken();
-          router.replace("/login");
-        }}
-      >
-        Logout
-      </button>
+    <nav className="nav">
+      <div className="nav-inner">
+        <strong>Job Smart AI</strong>
+        {links.map((l) => (
+          <Link key={l.href} href={l.href} className={`nav-link ${pathname === l.href ? "active" : ""}`}>
+            {l.label}
+          </Link>
+        ))}
+        <span className="spacer" />
+        <button
+          onClick={() => {
+            clearToken();
+            router.replace("/login");
+          }}
+        >
+          Logout
+        </button>
+      </div>
     </nav>
   );
 }
