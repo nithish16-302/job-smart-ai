@@ -6,11 +6,11 @@
 - Resume upload stub endpoint
 - Personalized jobs stub endpoint
 
-## Milestone 2
-- Authentication (email + Google)
-- Resume parser service
-- Profile extraction schema
-- Location preference model
+## Milestone 2 (Done)
+- Authentication (email/password)
+- JWT token issue + protected API routes
+- Resume parser service (keyword/role extraction baseline)
+- User profile + location preference model
 
 ## Milestone 3
 - Job source adapters (API-first)

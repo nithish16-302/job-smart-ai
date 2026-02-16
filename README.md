@@ -9,6 +9,16 @@ Resume-aware job discovery platform.
 - Personalized job search across multiple sources
 - Apply tracking
 
+## Current Status
+### Milestone 1 ✅
+- Monorepo scaffold complete
+
+### Milestone 2 ✅
+- Email/password auth (register/login)
+- JWT-based protected endpoints
+- Resume upload + keyword parser (skills/roles extraction)
+- User location preference persistence
+
 ## Monorepo Structure
 - `frontend/` - Next.js app
 - `backend/` - FastAPI API
