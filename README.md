@@ -25,6 +25,13 @@ Resume-aware job discovery platform.
 - Personalized ranking (`/jobs/personalized`)
 - Pipeline stage dashboard (`/dashboard/stages`)
 
+### Milestone 4 ✅
+- Routing-based UX (`/login`, `/dashboard`, `/jobs`, `/applications`, `/admin`)
+- Client-side auth guards + persistent token session
+- Apply tracking UI with stage updates
+- Alerts API + dashboard integration
+- Admin source health UI
+
 ## Monorepo Structure
 - `frontend/` - Next.js app
 - `backend/` - FastAPI API

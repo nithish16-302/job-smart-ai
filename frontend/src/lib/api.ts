@@ -65,3 +65,45 @@ export async function dashboardStages(token: string) {
   if (!res.ok) throw new Error("Dashboard fetch failed");
   return res.json();
 }
+
+export async function saveJob(token: string, jobId: number) {
+  const res = await fetch(`${API_BASE}/applications/save/${jobId}`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) throw new Error("Save job failed");
+  return res.json();
+}
+
+export async function myApplications(token: string) {
+  const res = await fetch(`${API_BASE}/applications/mine`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) throw new Error("Load applications failed");
+  return res.json();
+}
+
+export async function updateApplicationStage(token: string, applicationId: number, stage: string) {
+  const res = await fetch(`${API_BASE}/applications/stage/${applicationId}?stage=${encodeURIComponent(stage)}`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) throw new Error("Stage update failed");
+  return res.json();
+}
+
+export async function getAlerts(token: string) {
+  const res = await fetch(`${API_BASE}/alerts`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) throw new Error("Alerts fetch failed");
+  return res.json();
+}
+
+export async function sourceHealth(token: string) {
+  const res = await fetch(`${API_BASE}/admin/source-health`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) throw new Error("Source health fetch failed");
+  return res.json();
+}

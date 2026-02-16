@@ -8,6 +8,7 @@ from app.models.resume_profile import ResumeProfile
 from app.models.job import Job
 from app.services.job_sources import fetch_all_sources
 from app.services.matching import rank_jobs
+from app.models.ingest_run import IngestRun
 
 router = APIRouter()
 
@@ -27,6 +28,8 @@ def ingest_jobs(db: Session = Depends(get_db), current_user: User = Depends(get_
         row = Job(**item)
         db.add(row)
         inserted += 1
+    run = IngestRun(source="all", fetched=len(fetched), inserted=inserted, status="success")
+    db.add(run)
     db.commit()
     return {"fetched": len(fetched), "inserted": inserted}
 

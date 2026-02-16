@@ -18,7 +18,8 @@
 - Relevance scoring engine (skills/roles/location)
 - Pipeline stage dashboard endpoint
 
-## Milestone 4
-- Apply tracking
-- Saved jobs and alerts
-- Admin observability and source health
+## Milestone 4 (Done)
+- Apply tracking API + dedicated UI route
+- Saved jobs + alerts endpoint + dashboard surfacing
+- Admin source health endpoint + UI route
+- Better UX with routing and auth guards
