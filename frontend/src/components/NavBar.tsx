@@ -6,6 +6,7 @@ import { clearToken, getToken } from "@/lib/auth";
 
 const links = [
   { href: "/dashboard", label: "Dashboard" },
+  { href: "/pipeline", label: "Pipeline" },
   { href: "/jobs", label: "Jobs" },
   { href: "/applications", label: "Applications" },
   { href: "/admin", label: "Admin" },

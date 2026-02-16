@@ -1,0 +1,10 @@
+Generated at: 2026-02-16T19:06:00.282408
+Total qualified leads: 2
+By technology:
+- software_engineering: 0
+- devops: 0
+- network_engineering: 0
+- qa_testing: 2
+- ba_product: 0
+- data_science: 0
+- ai_ml: 1

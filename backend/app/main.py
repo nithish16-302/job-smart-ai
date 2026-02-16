@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.routes import health, jobs, resume, auth, profile, dashboard, applications, alerts, admin
+from app.api.routes import health, jobs, resume, auth, profile, dashboard, applications, alerts, admin, lead_sourcing
 from app.db.init_db import init_db
 
 app = FastAPI(title="Job Smart AI API", version="0.2.0")
@@ -26,3 +26,4 @@ app.include_router(applications.router, prefix="/applications", tags=["applicati
 app.include_router(dashboard.router, prefix="/dashboard", tags=["dashboard"])
 app.include_router(alerts.router, prefix="/alerts", tags=["alerts"])
 app.include_router(admin.router, prefix="/admin", tags=["admin"])
+app.include_router(lead_sourcing.router, prefix="/lead-sourcing", tags=["lead-sourcing"])

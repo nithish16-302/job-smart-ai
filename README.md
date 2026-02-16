@@ -32,6 +32,11 @@ Resume-aware job discovery platform.
 - Alerts API + dashboard integration
 - Admin source health UI
 
+### Milestone 5 (Lead Sourcing Stage 1) ✅
+- Lead sourcing service + API (`/lead-sourcing/run-now`, `/lead-sourcing/latest`)
+- Pipeline UI route (`/pipeline`) for manual run + summary view
+- Local lead sourcing script writes outputs to `data/lead_sourcing/`
+
 ## Monorepo Structure
 - `frontend/` - Next.js app
 - `backend/` - FastAPI API

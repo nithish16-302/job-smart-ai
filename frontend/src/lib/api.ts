@@ -117,3 +117,20 @@ export async function sourceHealth(token: string) {
   if (!res.ok) throw new Error("Source health fetch failed");
   return res.json();
 }
+
+export async function runLeadSourcing(token: string) {
+  const res = await fetch(`${API_BASE}/lead-sourcing/run-now`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) throw new Error("Lead sourcing run failed");
+  return res.json();
+}
+
+export async function latestLeadSourcing(token: string) {
+  const res = await fetch(`${API_BASE}/lead-sourcing/latest`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) throw new Error("Lead sourcing latest failed");
+  return res.json();
+}

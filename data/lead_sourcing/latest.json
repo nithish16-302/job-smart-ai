@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-02-16T19:06:00.282408",
+  "total_leads": 2,
+  "top_leads": [
+    {
+      "source": "remotive",
+      "title": "Office Assistant",
+      "company": "Coalition Technologies ",
+      "location": "Worldwide",
+      "url": "https://remotive.com/remote-jobs/marketing/office-assistant-1680495",
+      "technologies": [
+        "qa_testing"
+      ],
+      "lead_score": 5,
+      "contract_signal": true,
+      "posted_at": "2026-02-11T20:16:31"
+    },
+    {
+      "source": "remotive",
+      "title": "Content Reviewer",
+      "company": "TELUS Digital",
+      "location": "USA",
+      "url": "https://remotive.com/remote-jobs/all-others/content-reviewer-2088622",
+      "technologies": [
+        "qa_testing",
+        "ai_ml"
+      ],
+      "lead_score": 5,
+      "contract_signal": true,
+      "posted_at": "2026-02-06T16:14:35"
+    }
+  ]
+}
