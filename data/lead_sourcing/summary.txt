@@ -1,10 +1,11 @@
-Generated at: 2026-02-16T19:06:00.282408
-Total qualified leads: 2
+Generated at: 2026-02-16T19:14:52.827902
+Total qualified leads: 12
+Leads with domain/contact enrichment: 10
 By technology:
-- software_engineering: 0
-- devops: 0
+- software_engineering: 6
+- devops: 6
 - network_engineering: 0
-- qa_testing: 2
-- ba_product: 0
-- data_science: 0
-- ai_ml: 1
+- qa_testing: 3
+- ba_product: 2
+- data_science: 1
+- ai_ml: 6

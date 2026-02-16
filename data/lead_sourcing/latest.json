@@ -1,7 +1,34 @@
 {
-  "generated_at": "2026-02-16T19:06:00.282408",
-  "total_leads": 2,
+  "generated_at": "2026-02-16T19:14:52.827902",
+  "total_leads": 12,
   "top_leads": [
+    {
+      "source": "remotive",
+      "title": "AI Trainer",
+      "company": "Anuttacon",
+      "location": "Worldwide",
+      "url": "https://remotive.com/remote-jobs/ai-ml/ai-trainer-2087694",
+      "technologies": [
+        "devops",
+        "qa_testing",
+        "ai_ml"
+      ],
+      "lead_score": 6,
+      "contract_signal": true,
+      "posted_at": "2026-02-12T21:01:01",
+      "contact": {
+        "company_domain": null,
+        "target_contact_titles": [
+          "Talent Acquisition Manager",
+          "Technical Recruiter",
+          "Delivery Manager",
+          "Engineering Manager",
+          "Vendor Manager"
+        ],
+        "suggested_emails": [],
+        "note": "Emails are generated role inbox suggestions; verify before sending."
+      }
+    },
     {
       "source": "remotive",
       "title": "Office Assistant",
@@ -11,9 +38,27 @@
       "technologies": [
         "qa_testing"
       ],
-      "lead_score": 5,
+      "lead_score": 6,
       "contract_signal": true,
-      "posted_at": "2026-02-11T20:16:31"
+      "posted_at": "2026-02-11T20:16:31",
+      "contact": {
+        "company_domain": "coalitiontechnologies.com",
+        "target_contact_titles": [
+          "Talent Acquisition Manager",
+          "Technical Recruiter",
+          "Delivery Manager",
+          "Engineering Manager",
+          "Vendor Manager"
+        ],
+        "suggested_emails": [
+          "recruiting@coalitiontechnologies.com",
+          "talent@coalitiontechnologies.com",
+          "hr@coalitiontechnologies.com",
+          "vendors@coalitiontechnologies.com",
+          "partnerships@coalitiontechnologies.com"
+        ],
+        "note": "Emails are generated role inbox suggestions; verify before sending."
+      }
     },
     {
       "source": "remotive",
@@ -25,9 +70,309 @@
         "qa_testing",
         "ai_ml"
       ],
-      "lead_score": 5,
+      "lead_score": 6,
       "contract_signal": true,
-      "posted_at": "2026-02-06T16:14:35"
+      "posted_at": "2026-02-06T16:14:35",
+      "contact": {
+        "company_domain": null,
+        "target_contact_titles": [
+          "Talent Acquisition Manager",
+          "Technical Recruiter",
+          "Delivery Manager",
+          "Engineering Manager",
+          "Vendor Manager"
+        ],
+        "suggested_emails": [],
+        "note": "Emails are generated role inbox suggestions; verify before sending."
+      }
+    },
+    {
+      "source": "remotive",
+      "title": "Tech Lead Full-Stack Rails Engineer",
+      "company": "Mitre Media",
+      "location": "USA, Canada, USA timezones",
+      "url": "https://remotive.com/remote-jobs/software-development/tech-lead-full-stack-rails-engineer-2069746",
+      "technologies": [
+        "ai_ml"
+      ],
+      "lead_score": 4,
+      "contract_signal": false,
+      "posted_at": "2026-02-14T20:46:44",
+      "contact": {
+        "company_domain": "mitremedia.com",
+        "target_contact_titles": [
+          "Talent Acquisition Manager",
+          "Technical Recruiter",
+          "Delivery Manager",
+          "Engineering Manager",
+          "Vendor Manager"
+        ],
+        "suggested_emails": [
+          "recruiting@mitremedia.com",
+          "talent@mitremedia.com",
+          "hr@mitremedia.com",
+          "vendors@mitremedia.com",
+          "partnerships@mitremedia.com"
+        ],
+        "note": "Emails are generated role inbox suggestions; verify before sending."
+      }
+    },
+    {
+      "source": "remotive",
+      "title": "Tech Lead Databricks Data Engineer",
+      "company": "Mitre Media",
+      "location": "USA, Canada, USA timezones",
+      "url": "https://remotive.com/remote-jobs/software-development/tech-lead-databricks-data-engineer-2069747",
+      "technologies": [
+        "devops",
+        "ai_ml"
+      ],
+      "lead_score": 4,
+      "contract_signal": false,
+      "posted_at": "2026-02-14T20:46:35",
+      "contact": {
+        "company_domain": "mitremedia.com",
+        "target_contact_titles": [
+          "Talent Acquisition Manager",
+          "Technical Recruiter",
+          "Delivery Manager",
+          "Engineering Manager",
+          "Vendor Manager"
+        ],
+        "suggested_emails": [
+          "recruiting@mitremedia.com",
+          "talent@mitremedia.com",
+          "hr@mitremedia.com",
+          "vendors@mitremedia.com",
+          "partnerships@mitremedia.com"
+        ],
+        "note": "Emails are generated role inbox suggestions; verify before sending."
+      }
+    },
+    {
+      "source": "remotive",
+      "title": "iOS Developer",
+      "company": "nooro",
+      "location": "USA",
+      "url": "https://remotive.com/remote-jobs/software-development/ios-developer-1956455",
+      "technologies": [
+        "software_engineering"
+      ],
+      "lead_score": 4,
+      "contract_signal": false,
+      "posted_at": "2026-02-09T21:15:55",
+      "contact": {
+        "company_domain": "noororphansfund.org",
+        "target_contact_titles": [
+          "Talent Acquisition Manager",
+          "Technical Recruiter",
+          "Delivery Manager",
+          "Engineering Manager",
+          "Vendor Manager"
+        ],
+        "suggested_emails": [
+          "recruiting@noororphansfund.org",
+          "talent@noororphansfund.org",
+          "hr@noororphansfund.org",
+          "vendors@noororphansfund.org",
+          "partnerships@noororphansfund.org"
+        ],
+        "note": "Emails are generated role inbox suggestions; verify before sending."
+      }
+    },
+    {
+      "source": "remotive",
+      "title": "Senior Python Backend Developer",
+      "company": "SKYCATCHFIRE",
+      "location": "USA",
+      "url": "https://remotive.com/remote-jobs/software-development/senior-python-backend-developer-2088624",
+      "technologies": [
+        "software_engineering",
+        "ai_ml"
+      ],
+      "lead_score": 4,
+      "contract_signal": false,
+      "posted_at": "2026-02-06T22:41:25",
+      "contact": {
+        "company_domain": "skycatchfire.com",
+        "target_contact_titles": [
+          "Talent Acquisition Manager",
+          "Technical Recruiter",
+          "Delivery Manager",
+          "Engineering Manager",
+          "Vendor Manager"
+        ],
+        "suggested_emails": [
+          "recruiting@skycatchfire.com",
+          "talent@skycatchfire.com",
+          "hr@skycatchfire.com",
+          "vendors@skycatchfire.com",
+          "partnerships@skycatchfire.com"
+        ],
+        "note": "Emails are generated role inbox suggestions; verify before sending."
+      }
+    },
+    {
+      "source": "remotive",
+      "title": "Senior Amazon Brand Manager",
+      "company": "GNO Partners",
+      "location": "Worldwide",
+      "url": "https://remotive.com/remote-jobs/marketing/senior-amazon-brand-manager-2082736",
+      "technologies": [
+        "software_engineering"
+      ],
+      "lead_score": 4,
+      "contract_signal": false,
+      "posted_at": "2026-01-26T07:45:51",
+      "contact": {
+        "company_domain": "gnopartners.com",
+        "target_contact_titles": [
+          "Talent Acquisition Manager",
+          "Technical Recruiter",
+          "Delivery Manager",
+          "Engineering Manager",
+          "Vendor Manager"
+        ],
+        "suggested_emails": [
+          "recruiting@gnopartners.com",
+          "talent@gnopartners.com",
+          "hr@gnopartners.com",
+          "vendors@gnopartners.com",
+          "partnerships@gnopartners.com"
+        ],
+        "note": "Emails are generated role inbox suggestions; verify before sending."
+      }
+    },
+    {
+      "source": "remotive",
+      "title": "Product, Platform & Enterprise Full Stack Sr/Staff Software Engineer",
+      "company": "BNSF Railway",
+      "location": "USA",
+      "url": "https://remotive.com/remote-jobs/software-development/product-platform-enterprise-full-stack-sr-staff-software-engineer-2088612",
+      "technologies": [
+        "software_engineering",
+        "devops"
+      ],
+      "lead_score": 4,
+      "contract_signal": false,
+      "posted_at": "2026-01-24T14:35:10",
+      "contact": {
+        "company_domain": "bnsf.com",
+        "target_contact_titles": [
+          "Talent Acquisition Manager",
+          "Technical Recruiter",
+          "Delivery Manager",
+          "Engineering Manager",
+          "Vendor Manager"
+        ],
+        "suggested_emails": [
+          "recruiting@bnsf.com",
+          "talent@bnsf.com",
+          "hr@bnsf.com",
+          "vendors@bnsf.com",
+          "partnerships@bnsf.com"
+        ],
+        "note": "Emails are generated role inbox suggestions; verify before sending."
+      }
+    },
+    {
+      "source": "remotive",
+      "title": "Product, Platform & Enterprise Front End Sr/Staff Software Engineer",
+      "company": "BNSF Railway",
+      "location": "USA",
+      "url": "https://remotive.com/remote-jobs/software-development/product-platform-enterprise-front-end-sr-staff-software-engineer-2088611",
+      "technologies": [
+        "software_engineering",
+        "devops",
+        "ba_product"
+      ],
+      "lead_score": 4,
+      "contract_signal": false,
+      "posted_at": "2026-01-24T14:33:27",
+      "contact": {
+        "company_domain": "bnsf.com",
+        "target_contact_titles": [
+          "Talent Acquisition Manager",
+          "Technical Recruiter",
+          "Delivery Manager",
+          "Engineering Manager",
+          "Vendor Manager"
+        ],
+        "suggested_emails": [
+          "recruiting@bnsf.com",
+          "talent@bnsf.com",
+          "hr@bnsf.com",
+          "vendors@bnsf.com",
+          "partnerships@bnsf.com"
+        ],
+        "note": "Emails are generated role inbox suggestions; verify before sending."
+      }
+    },
+    {
+      "source": "remotive",
+      "title": "Sr/Staff AI Engineer",
+      "company": "BNSF Railway",
+      "location": "USA",
+      "url": "https://remotive.com/remote-jobs/ai-ml/sr-staff-ai-engineer-2088613",
+      "technologies": [
+        "software_engineering",
+        "devops",
+        "ba_product",
+        "data_science",
+        "ai_ml"
+      ],
+      "lead_score": 4,
+      "contract_signal": false,
+      "posted_at": "2026-01-23T21:23:08",
+      "contact": {
+        "company_domain": "bnsf.com",
+        "target_contact_titles": [
+          "Talent Acquisition Manager",
+          "Technical Recruiter",
+          "Delivery Manager",
+          "Engineering Manager",
+          "Vendor Manager"
+        ],
+        "suggested_emails": [
+          "recruiting@bnsf.com",
+          "talent@bnsf.com",
+          "hr@bnsf.com",
+          "vendors@bnsf.com",
+          "partnerships@bnsf.com"
+        ],
+        "note": "Emails are generated role inbox suggestions; verify before sending."
+      }
+    },
+    {
+      "source": "remotive",
+      "title": "Senior DevOps Engineer",
+      "company": "Marketerx",
+      "location": "USA",
+      "url": "https://remotive.com/remote-jobs/devops/senior-devops-engineer-2070150",
+      "technologies": [
+        "devops"
+      ],
+      "lead_score": 4,
+      "contract_signal": false,
+      "posted_at": "2026-01-18T14:31:16",
+      "contact": {
+        "company_domain": "marketer-x.com",
+        "target_contact_titles": [
+          "Talent Acquisition Manager",
+          "Technical Recruiter",
+          "Delivery Manager",
+          "Engineering Manager",
+          "Vendor Manager"
+        ],
+        "suggested_emails": [
+          "recruiting@marketer-x.com",
+          "talent@marketer-x.com",
+          "hr@marketer-x.com",
+          "vendors@marketer-x.com",
+          "partnerships@marketer-x.com"
+        ],
+        "note": "Emails are generated role inbox suggestions; verify before sending."
+      }
     }
   ]
 }

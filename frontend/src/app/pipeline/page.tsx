@@ -49,6 +49,7 @@ export default function PipelinePage() {
       <section className="card">
         <h3>Summary</h3>
         <p><strong>Total Leads:</strong> {data?.total_leads ?? 0}</p>
+        <p><strong>Leads with contact/domain enrichment:</strong> {data?.leads_with_contact ?? 0}</p>
         <pre>{JSON.stringify(data?.by_technology || {}, null, 2)}</pre>
       </section>
 
@@ -60,6 +61,9 @@ export default function PipelinePage() {
               <h3>{l.title}</h3>
               <p>{l.company} • {l.location}</p>
               <p>Tech: {(l.technologies || []).join(", ")} • score {l.lead_score}</p>
+              <p><strong>Domain:</strong> {l?.contact?.company_domain || "Not found"}</p>
+              <p><strong>Target titles:</strong> {(l?.contact?.target_contact_titles || []).slice(0,3).join(", ")}</p>
+              <p><strong>Suggested emails:</strong> {(l?.contact?.suggested_emails || []).slice(0,3).join(", ") || "N/A"}</p>
               <a href={l.url} target="_blank">Open posting</a>
             </article>
           ))}

@@ -2,6 +2,7 @@
 import json
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import quote_plus
 from urllib.request import Request, urlopen
 
 TARGET_ROLES = {
@@ -23,14 +24,59 @@ TIER2_3_CITIES = [
 EXCLUDED_TIER1 = ["new york", "san francisco", "seattle", "los angeles", "boston", "chicago", "austin"]
 
 
-def fetch_remotive(limit=200):
-    req = Request(
-        "https://remotive.com/api/remote-jobs",
-        headers={"User-Agent": "Mozilla/5.0 TeamSoftLeadBot/1.0"}
-    )
+def fetch_json(url: str):
+    req = Request(url, headers={"User-Agent": "Mozilla/5.0 TeamSoftLeadBot/1.0"})
     with urlopen(req, timeout=30) as r:
-        payload = json.loads(r.read().decode("utf-8"))
-    return payload.get("jobs", [])[:limit]
+        return json.loads(r.read().decode("utf-8"))
+
+
+def fetch_remotive(limit=200):
+    last_err = None
+    for _ in range(3):
+        try:
+            payload = fetch_json("https://remotive.com/api/remote-jobs")
+            return payload.get("jobs", [])[:limit]
+        except Exception as e:
+            last_err = e
+    print(json.dumps({"warning": f"remotive fetch failed: {last_err}"}))
+    return []
+
+
+def company_domain_from_clearbit(company_name: str):
+    try:
+        url = f"https://autocomplete.clearbit.com/v1/companies/suggest?query={quote_plus(company_name)}"
+        data = fetch_json(url)
+        if data and isinstance(data, list):
+            return data[0].get("domain")
+    except Exception:
+        return None
+    return None
+
+
+def generate_contact_info(company_name: str):
+    domain = company_domain_from_clearbit(company_name)
+    titles = [
+        "Talent Acquisition Manager",
+        "Technical Recruiter",
+        "Delivery Manager",
+        "Engineering Manager",
+        "Vendor Manager"
+    ]
+    emails = []
+    if domain:
+        emails = [
+            f"recruiting@{domain}",
+            f"talent@{domain}",
+            f"hr@{domain}",
+            f"vendors@{domain}",
+            f"partnerships@{domain}",
+        ]
+    return {
+        "company_domain": domain,
+        "target_contact_titles": titles,
+        "suggested_emails": emails,
+        "note": "Emails are generated role inbox suggestions; verify before sending."
+    }
 
 
 def classify(job_text):
@@ -48,7 +94,7 @@ def location_score(location):
         return 0
     if any(city in loc for city in TIER2_3_CITIES):
         return 2
-    if "remote" in loc:
+    if "remote" in loc or "world" in loc or "usa" in loc:
         return 1
     return 0
 
@@ -57,8 +103,9 @@ def lead_score(job, matched_tech):
     score = 0
     score += 3 if matched_tech else 0
     score += location_score(job.get("candidate_required_location", ""))
-    score += 2 if "contract" in (job.get("title", "") + " " + job.get("description", "")).lower() else 0
-    score += 1 if any(k in (job.get("description", "")).lower() for k in ["urgent", "immediate", "asap"]) else 0
+    text = (job.get("title", "") + " " + job.get("description", "")).lower()
+    score += 2 if any(k in text for k in ["contract", "c2c", "1099"]) else 0
+    score += 1 if any(k in text for k in ["urgent", "immediate", "asap"]) else 0
     return score
 
 
@@ -76,6 +123,8 @@ def main():
         if score < 4:
             continue
 
+        contact = generate_contact_info(j.get("company_name", ""))
+
         leads.append({
             "source": "remotive",
             "title": j.get("title"),
@@ -84,14 +133,14 @@ def main():
             "url": j.get("url"),
             "technologies": matched,
             "lead_score": score,
-            "contract_signal": "contract" in text.lower(),
+            "contract_signal": any(k in text.lower() for k in ["contract", "c2c", "1099"]),
             "posted_at": j.get("publication_date"),
+            "contact": contact,
         })
 
     leads.sort(key=lambda x: x["lead_score"], reverse=True)
 
     now = datetime.now()
-    date_str = now.strftime("%Y-%m-%d")
     ts = now.strftime("%Y-%m-%d_%H-%M")
 
     out_dir = Path(__file__).resolve().parents[1] / "data" / "lead_sourcing"
@@ -111,19 +160,24 @@ def main():
     dated_path.write_text(json.dumps(payload, indent=2))
 
     by_tech = {k: 0 for k in TARGET_ROLES.keys()}
+    with_contact = 0
     for l in leads:
         for t in l["technologies"]:
             by_tech[t] += 1
+        if l.get("contact", {}).get("company_domain"):
+            with_contact += 1
 
     summary_lines = [
         f"Generated at: {now.isoformat()}",
         f"Total qualified leads: {len(leads)}",
+        f"Leads with domain/contact enrichment: {with_contact}",
         "By technology:"
     ] + [f"- {k}: {v}" for k, v in by_tech.items()]
 
     summary_path.write_text("\n".join(summary_lines) + "\n")
     print(json.dumps({
         "total_leads": len(leads),
+        "with_contact": with_contact,
         "latest": str(latest_path),
         "snapshot": str(dated_path),
         "summary": str(summary_path)
